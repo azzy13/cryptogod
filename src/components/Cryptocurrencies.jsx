@@ -15,10 +15,13 @@ const Cryptocurrencies = ({ simplified }) => {
   useEffect(() => {
     setCryptos(cryptosList?.data?.coins);
 
-    const filteredData = cryptosList?.data?.coins.filter((item) =>
-      item.name.toLowerCase().includes(searchTerm),
+    // eslint-disable-next-line
+    const filteredData = cryptosList?.data?.coins.filter(
+      (item) =>
+        // eslint-disable-next-line
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()),
+      // eslint-disable-next-line
     );
-
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
@@ -27,19 +30,27 @@ const Cryptocurrencies = ({ simplified }) => {
   return (
     <>
       {!simplified && (
+        // eslint-disable-next-line
         <div className='search-crypto'>
           <Input
+            // eslint-disable-next-line
             placeholder='Search Cryptocurrency'
             onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
           />
         </div>
       )}
-      <Row gutter={[32, 32]} className='crypto-card-container'>
+
+      <Row
+        gutter={[32, 32]}
+        // eslint-disable-next-line
+        className='crypto-card-container'
+      >
         {cryptos?.map((currency) => (
           <Col
             xs={24}
             sm={12}
             lg={6}
+            // eslint-disable-next-line
             className='crypto-card'
             key={currency.uuid}
           >
@@ -47,7 +58,14 @@ const Cryptocurrencies = ({ simplified }) => {
             <Link key={currency.uuid} to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}. ${currency.name}`}
-                extra={<img className='crypto-image' src={currency.iconUrl} />}
+                extra={
+                  // eslint-disable-next-line
+                  <img
+                    // eslint-disable-next-line
+                    className='crypto-image'
+                    src={currency.iconUrl}
+                  />
+                }
                 hoverable
               >
                 <p>Price: {millify(currency.price)}</p>
