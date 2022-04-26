@@ -6,6 +6,7 @@ function Exchanges() {
       <a
         href='https://www.kaggle.com/code/kaushikbajaj/cryptocurrency-prediction?scriptVersionId=93883328'
         target='_blank'
+        rel='noreferrer'
       >
         Prediction Algorithm
       </a>
